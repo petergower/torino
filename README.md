@@ -5,18 +5,26 @@ Start the docker daemon
 
 ```bash
 
-# <BS>https://wiki.archlinux.org/index.php/Docker#Installation
+# https://docs.docker.com/engine/installation/linux/archlinux/
 sudo gpasswd -a USER docker
 
 # logout, login
 newgrp docker
 
-systemctl start docker
+sudo systemctl start docker
 
 # to close
 
-systemctl stop docker
+sudo systemctl stop docker
 
-sudo dockerd
+# You should be able to run docker as your user, try
+docker ps
+
+# Now, run
+docker version
+
+# And do
+export DOCKER_API_VERSION=1.24 # Whatever version matches the server and the API.
+
 
 ```

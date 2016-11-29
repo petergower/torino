@@ -6,15 +6,14 @@ import (
 	"fmt"
 	"log"
 	"os/exec"
-	"strings"
 
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/client"
 )
 
 func main() {
-	cmd := exec.Command("tr", "a-z", "A-Z")
-	cmd.Stdin = strings.NewReader("some input")
+	cmd := exec.Command("./_test/main")
+	//cmd.Stdin = strings.NewReader("some input")
 	var out bytes.Buffer
 	cmd.Stdout = &out
 	err := cmd.Run()
@@ -35,6 +34,8 @@ func startEngine() {
 	if err != nil {
 		panic(err)
 	}
+
+	fmt.Printf("%d containers found\n", len(containers))
 
 	for _, container := range containers {
 		fmt.Printf("%s %s\n", container.ID[:10], container.Image)
