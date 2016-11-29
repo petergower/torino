@@ -1,9 +1,12 @@
 Torino
 ===
 
-Start the docker daemon
+# Installation
 
 ```bash
+
+# Install Docker
+sudo pacman -S docker
 
 # https://docs.docker.com/engine/installation/linux/archlinux/
 sudo gpasswd -a USER docker
@@ -11,7 +14,11 @@ sudo gpasswd -a USER docker
 # logout, login
 newgrp docker
 
+# Start the docker service
 sudo systemctl start docker
+
+# Start docker on system boot
+sudo systemctl enable docker
 
 # to close
 
